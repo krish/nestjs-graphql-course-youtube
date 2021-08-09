@@ -5,19 +5,17 @@ import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 @ObjectType()
 @Entity()
 export class Project {
-
   @Field()
   @PrimaryGeneratedColumn('uuid')
-  id: string
+  id: string;
   @Field()
   @Column()
-  name: string
+  name: string;
   @Field(() => Int)
   @Column()
-  code: number
+  code: number;
 
-  @OneToMany(() => Employee, employee => employee.project)
+  @OneToMany(() => Employee, (employee) => employee.project)
   @Field(() => [Employee], { nullable: true })
-  employees: Employee[]
-
+  employees: Employee[];
 }
